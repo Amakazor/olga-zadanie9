@@ -248,6 +248,9 @@ int main()
 			reference = referenced2;
 			//nie można zmienić do jakiej zmiennej jest referencja
 			//takie coś jak powyżej spowoduje, że wszystkie trzy zmienne będą miały wartość 156
+
+			//int& empty_reference;
+			//też jest niemożliwe. Referencja musi w momencie inicjalizacji mieć określone, do czego jest referencją
 		}
 		/*KONIEC PRZYKŁAD 9.5*/
 	}
