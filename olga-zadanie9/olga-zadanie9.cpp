@@ -34,13 +34,47 @@ bool divide_if_possible(int& dzielna, int dzielnik) //argumentami funkcji jest r
 		return false; //zwraca false gdy dzielenie było niemożliwe
 	}
 }
+// funkcja, którą sama napiszę, co sprawi, że będzie piękna
+// i może Arek będzie dumny
+//Utwórz funkcję min_max_int typu bool;
+	//1. funkcja przyjmuje trzy argumenty
+	//2. funkcja zmienia wartość pierwszego argumentu jeśli jest mniejszy od drugiego argumentu i lub większy od trzeciego argumentu
+	//	 tak aby był on ograniczony do przedziału <argument_drugi; argument_trzeci>
+	//3. funkcja zwraca bool, którego wartość wynosi true, jeśli nastąpiła zmiana wartości pierwszego argumentu, albo false jeśli pierwszy argument znajdował się już w wspomnianym wyżej przedziale
+	//4. poniżej wykorzystaj funkcję dla danych zestawów argumentów wypisując na konsolę informację, czy pierwszy argument został zmieniony i jeśli tak, to jego nową wartość:
+	//   2		1		4
+	//   8		2		5
+	//   1000	1		100000
+	//   1000	1		100
+	//   -5		-10		20
+	//   -5		10		20
+bool min_max_int(int& pierwszy, int drugi, int trzeci)
+{
+	if (pierwszy < drugi || pierwszy > trzeci)
+	{
+		if (pierwszy < drugi)
+		{
+			pierwszy = drugi;
+		}
+		else
+		{
+			pierwszy = trzeci;
+		}
 
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+}
 int main()
 {
-	bool example = true;
+	bool example = false;
 	if (example)
 	{
-		int current_example = 0;
+		int current_example = 5;
 
 		/*PRZYKŁAD 9.0*/
 		/*Operator referencji*/
@@ -178,7 +212,7 @@ int main()
 				std::cout << "Nie nastapilo dzielenie." << '\n';
 			}
 
-			std::wcout << '\n';
+			std::cout << '\n';
 			
 			if (was_a2_divided)
 			{
@@ -204,7 +238,7 @@ int main()
 			int b2 = 0;
 
 			bool was_a1_divided = divide_if_possible(a1, b1); //dzielenie nastąpi, zmiennej a1 zostanie przypisany wynik a zmiennej was_a1_divided wartość true
-			bool was_a2_divided = divide_if_possible(a2, b2); //dzielenie nie nastąpi, zmiennej a2 zostanie przypisany wynik a zmiennej was_a2_divided wartość false
+			bool was_a2_divided = divide_if_possible(a2, b2); //dzielenie nie nastąpi, zmiennej a2 nie zostanie przypisany wynik a zmiennej was_a2_divided wartość false
 
 			if (was_a1_divided)
 			{
@@ -230,15 +264,17 @@ int main()
 
 		}
 		/*KONIEC PRZYKŁAD 9.4*/
-		else if (current_example == 4)
+		else if (current_example == 5)
 		/*PRZYKŁAD 9.5*/
 		/*Ostrzeżenia*/
-		{
-			//swap_ints(5, 6);
+		{	
+			int a = 5;
+			int b = 6;
+			swap_ints(a, b);
 			//jest niemożliwe. jeśli usuniesz z poprzedniej linijki znaczniki komentarza // to nastąpi błąd
 			//funkcjom przyjmującym referencje nie można przekazać literals (dosłownych danych, stałych)
 
-			//int& bad_ref = 6;
+			int& bad_ref = a;
 			//to samo tyczy się normalnego tworzenia zmiennych referencyjnych
 
 			int referenced = 7;
@@ -269,6 +305,23 @@ int main()
 	//   -5		-10		20
 	//   -5		10		20
 	{
+
+		int a = 1000;
+		int b = 1;
+		int c = 100000;
+
+		bool d = min_max_int(a, b, c);
+	
+		if (d)
+		{
+			std::cout << "nastapila zmiana wartosci a. Jego nowa wartosc to: " << a << "\n\n";
+		}
+		else
+		{
+			std::cout << "wszystko bylo spoko \n\n";
+		}
+		
+		std::cout << "calkiem cie kocham";
 		
 	}
 	/*KONIEC ZADANIE 9.1*/
